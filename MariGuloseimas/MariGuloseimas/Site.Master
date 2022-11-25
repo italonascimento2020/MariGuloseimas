@@ -1,0 +1,211 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MariGuloseimas.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Mari Guloseimas site </title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        body {
+            background-color: #7c1b71d1;
+            background-image: url(imagens/Torta.jpg);
+            background-repeat: no-repeat;
+        }
+
+        .row {
+            background-color: darkgrey;
+            border-color: black;
+            border-style: double;
+            border-width: 10px;
+            padding: 25px;
+        }
+
+        #whats {
+            background-color: aquamarine;
+            width: 25px 50px 25px 15px;
+        }
+
+        .tblcliente {
+            background-color: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 1027px;
+        }
+
+        .tblProduto {
+            background: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 570px;
+        }
+
+        .tblVendas {
+            background: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 774px;
+        }
+
+        .tblTipoProduto {
+            background: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 370px;
+        }
+
+        .tblHistVendas {
+            background: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 650px;
+        }
+
+        .tblFormaPagamento {
+            background: #9f9f8f;
+            border-color: black;
+            border-style: ridge;
+            border-width: 5px;
+            width: 410px;
+        }
+
+        .img-logo {
+            float: left;
+            width: 100px;
+            height: 120px;
+        }
+
+        .img-OvoCasadinho {
+            width: 650px;
+            height: 550px;
+            padding-top: 100px;
+            padding-left: 10px;
+        }
+
+        .img-CarneAssada {
+            width: 510px;
+            height: 550px;
+            padding-top: 100px;
+            padding-right: 10px;
+        }
+
+        .navbar-header {
+            background-color: #8e25d7;
+            font-size: 25px;
+        }
+
+        .navbar-inverse {
+            background-color: #600c69;
+            font-size: 20px;
+        }
+        .card{
+            background-color:brown;  
+            width: 990px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div id="principal">
+            <header>
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <img src="Imagens/logomari.jpeg" class="img-logo" alt="Logotipo Mari Guloseimas" />
+                    <div class="container">
+                        <div class="navbar-header" style="padding-top: 20px">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" runat="server" href="~/">Home</a>
+                        </div>
+
+                        <div class="navbar-collapse collapse" style="padding-top: 20px">
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="TelaCadastroCliente.aspx">Cliente</a></li>
+                                <li><a runat="server" href="TelaCadastroProduto.aspx">Produto</a></li>
+                                <li><a runat="server" href="TelaCadastroVendas.aspx">Vendas</a></li>
+                                <li><a runat="server" href="TelaCadastroTipoProduto.aspx">Tipo de Produto</a></li>
+                                <li><a runat="server" href="TelaHistoricoVenda.aspx">Historico de vendas</a></li>
+                                <li><a runat="server" href="TelaFormaPagamento.aspx">Forma de Pagamento</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <main>
+                <section>
+                    <div class="card">
+                        <img src="Imagens/OvoCasadinho.jpg" class="img-OvoCasadinho" alt=""  style="height: 250px 2000px" />
+                        <p>Seletores</p>
+
+                    </div>
+                    
+                    <div class="card1">
+                        <img src="" alt="" />
+                        <p>Posicionamento</p>
+
+                    </div>
+                    
+                    <div class="card2">
+                        <img src="" alt="" />
+                        <p>Fontes e ícones</p>
+
+                    </div>
+
+
+                </section>
+
+                <section>
+
+                </section>
+
+            </main>
+        </div>
+
+        <div class="container body-content" style="padding-top: 80px">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mari Guloseimas</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
